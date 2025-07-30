@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const SENDER_EMAIL = "mishrayash930@gmail.com";
 const SENDER_PASSWORD = process.env.GMAIL_APP_PASSWORD;
-const RECEIVER_EMAIL = "yashm6404@example.com";
+const RECEIVER_EMAIL = "yashm6404@gmail.com";
 const SMTP_SERVER = "smtp.gmail.com";
 const SMTP_PORT = 465; // Port for SSL
 
