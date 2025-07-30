@@ -25,7 +25,8 @@ async function notifyLassiAvailability(emailId) {
             to: emailId,
             subject: "Amul High Protein Rose Lassi Available",
             text: "Dear Yash,\n\nThe Amul High Protein Rose Lassi is now available in your cart.\n\nBest regards,\nLassi Availability Notifier",
-            html: "<p>Dear Yash,</p><p>The Amul High Protein Rose Lassi is now available in your cart.</p><p>Best regards,<br>Lassi Availability Notifier</p>",
+            html: `<p>Dear Yash,</p><p>The Amul High Protein Rose Lassi is now available in your cart.</p><p>Best regards,<br>Lassi Availability Notifier</p><br>
+                <b>Order here</b>: <a href='https://shop.amul.com/api/1/entity/ms.products?q=%7B%22alias%22:%22amul-high-protein-rose-lassi-200-ml-or-pack-of-30%22%7D&limit=1'>Amul High Protein Rose Lassi</a>`,
         };
 
         const info = await transporter.sendMail(mailOptions);
