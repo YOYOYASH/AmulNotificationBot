@@ -1,0 +1,34 @@
+# .github/workflows/check-lassi.yml
+
+name: Check Lassi Availability
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+  # Runs the job every hour
+  schedule:
+    - cron: '*/15 * * * *'
+
+jobs:
+  check-availability:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Use a long-term support version of Node.js
+          cache: 'npm' # Cache npm dependencies for faster builds
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Create .env file from GitHub Secrets
+        run: echo "GMAIL_APP_PASSWORD=${{ secrets.GMAIL_APP_PASSWORD }}" > .env
+
+      - name: Run the availability check script
+        run: node index.js
